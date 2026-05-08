@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-lavender: #7f67b2;
+  --color-lavender-deep: #553f84;
+  --color-navy: #0a2540;
+  --color-gold: #d4af37;
+  --color-cream: #f8f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-navy);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-ibm-arabic), Tajawal, system-ui, sans-serif;
+}
+
+html[dir="ltr"] body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+  background: rgba(42, 31, 68, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Decorative carpet pattern - subtle background */
+.carpet-pattern {
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgba(127, 103, 178, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(212, 175, 55, 0.06) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(85, 63, 132, 0.04) 0%,
+      transparent 60%
+    );
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(at 0% 0%, #efeafb 0px, transparent 50%),
+    radial-gradient(at 100% 0%, #dcd0f4 0px, transparent 50%),
+    radial-gradient(at 100% 100%, #f8f7ff 0px, transparent 50%),
+    radial-gradient(at 0% 100%, #efeafb 0px, transparent 50%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #efeafb;
+}
+::-webkit-scrollbar-thumb {
+  background: #a48bdd;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7f67b2;
+}
+
+/* Selection */
+::selection {
+  background: #d4af37;
+  color: #0a2540;
+}
+
+/* Button base */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300;
+}
+
+.btn-primary {
+  @apply btn bg-lavender-500 text-white hover:bg-lavender-600 shadow-soft hover:shadow-glow;
+}
+
+.btn-gold {
+  @apply btn bg-gold text-navy hover:bg-gold-200 shadow-gold;
+}
+
+.btn-ghost {
+  @apply btn bg-white/50 text-navy backdrop-blur border border-lavender-200 hover:bg-white;
+}
+
+.btn-outline {
+  @apply btn border-2 border-lavender-500 text-lavender-600 hover:bg-lavender-500 hover:text-white;
+}
+
+.card {
+  @apply bg-white rounded-3xl p-6 shadow-soft border border-lavender-100/50 transition-all;
+}
+
+.card-hover {
+  @apply hover:shadow-glow hover:-translate-y-1;
+}
+
+.section {
+  @apply py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto;
+}
+
+.heading-1 {
+  @apply text-4xl md:text-6xl font-bold tracking-tight text-navy leading-tight;
+}
+
+.heading-2 {
+  @apply text-3xl md:text-5xl font-bold tracking-tight text-navy leading-tight;
+}
+
+.heading-3 {
+  @apply text-2xl md:text-3xl font-bold text-navy;
+}
+
+.subtle {
+  @apply text-navy/60;
+}
+
+.chip {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-lavender-100 text-lavender-700 border border-lavender-200;
+}
+
+.chip-gold {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-gold-50 text-gold-500 border border-gold-100;
+}
+
+/* RTL adjustments */
+html[dir="rtl"] .ltr-only {
+  display: none;
+}
+html[dir="ltr"] .rtl-only {
+  display: none;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
